@@ -4,7 +4,6 @@
   "description": "Initiative for D&D where the players have to beat a DC to go before or after all the enemies.",
   "version": "0.1.0",
   "library": "false",
-  "manifestPlusVersion": "1.2.0",
   "compatibility": {
     "minimum": 13,
     "verified": 13
@@ -19,8 +18,8 @@
     "systems": [],
     "requires": []
   },
-  "scripts": [
-    "scripts/main.js"
+  "esmodules": [
+    "scripts/module.js"
   ],
   "styles": [
     "styles/styles.css"
