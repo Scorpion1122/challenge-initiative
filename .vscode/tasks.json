@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Launch Foundry",
+        "type": "shell",
+        "command": "cmd",
+        "args": [
+          "/c",
+          "D:\\FoundryVTT\\App\\Foundry-Virtual-Tabletop.exe"
+        ],
+        "options": {
+          "cwd": "D:\\FoundryVTT\\App"
+        },
+        "problemMatcher": [],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
