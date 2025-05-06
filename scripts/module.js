@@ -21,16 +21,8 @@ Hooks.once('devModeReady', ({ registerPackageDebugFlag }) => {
 
 Hooks.on("createCombatant", GroupsManager.onCreateCombatant);
 Hooks.on("combatRound", GroupsManager.onCombatRound);
-Hooks.on("dnd5e.rollInitiative", function(actor, combatants) {
-
-});
-
-Hooks.on("dnd5e.preCombatRecovery", function(combatant, args) {
-  ChallengeInitiative.log(false, `did roll init?? ${combatant.name}`);
-  if(args.includes["initiative"]) {
-    ChallengeInitiative.log(false, `rolled initiative! ${combatant.name}`);
-  }
-});
+Hooks.on("dnd5e.preCombatRecovery", GroupsManager.onPreCombatRecovery);
+Hooks.on("dnd5e.postCombatRecovery", GroupsManager.onPostCombatRecovery);
 
 /* Hooks.on("combatRound", function(combat, round, action) {
   const combatants = combat.combatants.filter(
