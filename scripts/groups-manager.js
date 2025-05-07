@@ -69,6 +69,12 @@ export class GroupsManager {
             })
         ));
 
+        for (const playerCombatant of playerCombatants) {
+            const groupID = GroupsManager.getGroupID(playerCombatant);
+            ChallengeInitiative.log(false, `Setting combatant group: ${playerCombatant.name} : ${groupID}`);
+            await playerCombatant.setFlag(ChallengeInitiative.ID, GroupsManager.FLAGS.GROUP, groupID);
+        }
+
         // Prepare enemy initiative
         const enemyCombatants = GroupsManager.getEnemyCombatants(combat);
         const enemyInitiative = GroupsManager.calculateChallengeValue(playerCombatants, enemyCombatants);
@@ -135,7 +141,7 @@ export class GroupsManager {
         const playerCombatants = GroupsManager.getPlayerCombatants(combat);
         const enemyCombatants = GroupsManager.getEnemyCombatants(combat);
         const enemyInitiative = GroupsManager.calculateChallengeValue(playerCombatants, enemyCombatants);
-        if(combatant.initiative <= enemyInitiative) {
+        if(combatant.initiative === null || combatant.initiative <= enemyInitiative) {
             return GroupsManager.GROUP_IDS.PLAYER_PHASE_TWO;
         }
         return GroupsManager.GROUP_IDS.PLAYER_PHASE_ONE;
